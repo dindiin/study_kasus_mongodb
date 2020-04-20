@@ -1,0 +1,83 @@
+use universitas
+
+db.mahasiswa.createIndex({"email":1},{unique:true})
+
+db.mahasiswa.insert({nim:"111",nama:"Joko Purwono",email:"jokopurwono@yahoo.com",phone:"089812345678"})
+
+db.mahasiswa.insert([
+{
+nim:"112",
+nama:"Widya Kosasih",
+email:"widyakosasih@gmail.com",
+phone:"085769553853"
+},
+{
+nim:"113",
+nama:"Hanung Bramantyo",
+email:"hanungbra@yahoo.com",
+phone:"082183729013"
+},
+{
+nim:"114",
+nama:"Robby Purba",
+email:"robbypurba@gmail.com",
+phone:"087709241345"
+},
+{
+nim:"115",
+nama:"Nining Herawati",
+email:"herawatinining123@gmail.com",
+phone:"085638391042"
+},
+{
+nim:"116",
+nama:"M. Nurreza Hidayat",
+email:"rezahidayat@gmail.com",
+phone:"082293750135"
+},
+{
+nim:"117",
+nama:"Rahmad Ibrahim",
+email:"ibrahimrahmaddd@yahoo.com",
+phone:"081339519352"
+},
+{
+nim:"118",
+nama:"Meilani Fifi",
+email:"fifimeilani93@gmail.com",
+phone:"089810917249"
+},
+{
+nim:"119",
+nama:"Alica Nur Jannah",
+email:"alicajannah@gmail.com",
+phone:"087712497535"
+},
+{
+nim:"120",
+nama:"Benny Sucipto",
+email:"bennysu@yahoo.com",
+phone:"082212497953"
+}
+]);
+
+db.mahasiswa.find().pretty()
+
+db.mahasiswa.find().pretty().sort({nama:1})
+
+db.mahasiswa.update(
+{
+nama: "Joko Purwono"
+},
+{
+nama: "Joko Dwi Purwono"
+}
+)
+
+db.mahasiswa.find({ nama: "Joko Dwi Purwono" }).pretty();
+
+db.mahasiswa.update(
+{nama: "Benny Sucipto"},
+{$set:{email:"bennyofficial@gmail.com"}},
+false,true
+);
